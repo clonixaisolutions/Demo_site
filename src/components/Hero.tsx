@@ -4,15 +4,18 @@ import heroImage from "@/assets/hero-inspection.jpg";
 
 const Hero = () => {
   return (
-    <section id="home" className="relative min-h-screen flex items-center bg-primary pt-20">
+    <section
+      id="home"
+      className="relative min-h-screen flex items-center bg-primary pt-20"
+    >
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 overflow-hidden">
         <img
           src={heroImage}
           alt="Professional property inspection"
-          className="w-full h-full object-cover opacity-20"
+          className="w-full h-full object-cover opacity-40"  // Increased visibility
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/95 to-primary/80" />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/70 via-primary/60 to-primary/50" />
       </div>
 
       {/* Content */}
@@ -21,19 +24,37 @@ const Hero = () => {
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-primary-foreground mb-6 animate-fade-in">
             Maximize Your Insurance Settlement With Expert Public Adjusters
           </h1>
+
           <p className="text-lg md:text-xl text-primary-foreground/90 mb-8 max-w-3xl mx-auto animate-fade-in">
-            Don't settle for less. Our experienced team fights for your rights and ensures you receive the full compensation you deserve for property damage claims.
+            Don't settle for less. Our experienced team fights for your rights
+            and ensures you receive the full compensation you deserve for
+            property damage claims.
           </p>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 animate-fade-in">
-            <Button size="lg" variant="secondary" className="text-lg px-8 py-6">
-              Start Your Free Claim Review
+            {/* Primary CTA — linked to form */}
+            <Button
+              asChild
+              size="lg"
+              variant="secondary"
+              className="text-lg px-8 py-6 cursor-pointer"
+            >
+              <a href="#get-started">Start Your Free Claim Review</a>
             </Button>
+
+            {/* Updated Modern, Elegant Button */}
             <Button
               size="lg"
-              variant="outline"
-              className="text-lg px-8 py-6 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary"
+              className="
+                text-lg px-8 py-6 font-semibold
+                border-2 border-white text-white
+                bg-white/10 backdrop-blur-sm
+                transition-all duration-300
+                hover:bg-white hover:text-primary
+                hover:shadow-[0_0_20px_rgba(255,255,255,0.4)]
+                hover:scale-[1.03]
+              "
             >
               Learn How We Help
             </Button>
@@ -45,10 +66,12 @@ const Hero = () => {
               <CheckCircle2 className="w-6 h-6" />
               <span className="text-sm md:text-base">No Upfront Fees</span>
             </div>
+
             <div className="flex items-center justify-center space-x-3 text-primary-foreground">
               <Shield className="w-6 h-6" />
               <span className="text-sm md:text-base">Licensed & Insured</span>
             </div>
+
             <div className="flex items-center justify-center space-x-3 text-primary-foreground">
               <TrendingUp className="w-6 h-6" />
               <span className="text-sm md:text-base">Proven Results</span>

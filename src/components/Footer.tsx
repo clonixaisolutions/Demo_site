@@ -1,18 +1,23 @@
 import { Phone, Mail, MapPin } from "lucide-react";
+import Logo from "@/assets/logo.png"; // <-- IMPORT LOGO
 
 const Footer = () => {
   return (
     <footer className="bg-primary-dark text-primary-foreground py-12">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-4 gap-8 mb-8">
+          
           {/* Company Info */}
           <div>
-            <div className="flex items-center space-x-2 mb-4">
-              <div className="w-10 h-10 bg-primary-foreground rounded-full flex items-center justify-center">
-                <span className="text-primary font-bold text-xl">V</span>
-              </div>
-              <span className="font-bold text-xl">Value Equity</span>
+            <div className="flex items-center space-x-3 mb-4">
+              <img 
+                src={Logo} 
+                alt="Value Equity Logo" 
+                className="w-12 h-12 object-contain rounded-full bg-white p-1 shadow-md"
+              />
+              <span className="font-bold text-xl">Valor Equity Claims Solutions</span>
             </div>
+
             <p className="text-primary-foreground/80 text-sm">
               Licensed public insurance adjusters fighting for your rights and maximum settlements.
             </p>
@@ -53,14 +58,14 @@ const Footer = () => {
               </li>
               <li className="flex items-start space-x-2">
                 <Mail className="w-4 h-4 mt-1 flex-shrink-0" />
-                <a href="mailto:info@valueequity.com" className="text-primary-foreground/80 hover:text-primary-foreground">
-                  info@valueequity.com
+                <a href="mailto:info@vesclaims.com" className="text-primary-foreground/80 hover:text-primary-foreground">
+                  info@vesclaims.com
                 </a>
               </li>
               <li className="flex items-start space-x-2">
                 <MapPin className="w-4 h-4 mt-1 flex-shrink-0" />
                 <span className="text-primary-foreground/80">
-                  Serving all of Florida
+                Servicing the Dallas Fort Worth Metroplex
                 </span>
               </li>
             </ul>
@@ -69,7 +74,9 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="border-t border-primary-foreground/20 pt-8 text-center text-sm text-primary-foreground/60">
-          <p>&copy; {new Date().getFullYear()} Value Equity. All rights reserved. Licensed Public Adjusters.</p>
+          <p>
+            &copy; {new Date().getFullYear()} Valor Equity Claims Solutions. All rights reserved. Licensed Public Adjusters.
+          </p>
         </div>
       </div>
     </footer>

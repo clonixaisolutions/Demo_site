@@ -1,21 +1,36 @@
+// src/components/Services.tsx
+import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Flame, Droplets, Wind, Zap, Home, Briefcase } from "lucide-react";
+import {
+  Flame,
+  Droplets,
+  Wind,
+  Zap,
+  Home as HomeIcon,
+  Briefcase,
+} from "lucide-react";
+
+import ResidentialImg from "@/assets/residentials.jpg";
+import CommercialImg from "@/assets/commerical.jpg";
 
 const services = [
   {
     icon: Flame,
     title: "Fire Damage",
-    description: "Comprehensive assessment and claim management for fire-related property damage.",
+    description:
+      "Comprehensive assessment and claim management for fire-related property damage.",
   },
   {
     icon: Droplets,
     title: "Water Damage",
-    description: "Expert handling of flooding, burst pipes, and water intrusion claims.",
+    description:
+      "Expert handling of flooding, burst pipes, and water intrusion claims.",
   },
   {
     icon: Wind,
     title: "Hurricane Damage",
-    description: "Specialized support for wind and storm damage insurance claims.",
+    description:
+      "Specialized support for wind and storm damage insurance claims.",
   },
   {
     icon: Zap,
@@ -23,22 +38,66 @@ const services = [
     description: "Professional representation for electrical system damage claims.",
   },
   {
-    icon: Home,
+    icon: HomeIcon,
     title: "Residential Claims",
-    description: "Dedicated service for homeowners and residential property damage.",
+    description:
+      "Dedicated service for homeowners and residential property damage.",
   },
   {
     icon: Briefcase,
     title: "Commercial Claims",
-    description: "Expert assistance for business and commercial property claims.",
+    description:
+      "Expert assistance for business and commercial property claims.",
   },
 ];
 
-const Services = () => {
+const propertyTypes = [
+  {
+    title: "Residential Properties",
+    subtitle: "Expert handling of homeowner claims with personalized service",
+    image: ResidentialImg,
+  },
+  {
+    title: "Commercial Properties",
+    subtitle:
+      "Minimize business disruption with fast, professional claim resolution",
+    image: CommercialImg,
+  },
+];
+
+const Services: React.FC = () => {
   return (
-    <section id="services" className="py-20 bg-background">
-      <div className="container mx-auto px-4">
+    <section
+      id="services"
+      className="relative py-20 overflow-hidden"
+      style={{
+        // base background tint
+        backgroundColor: "#f7fbff",
+
+        /*
+         * Small-dot pattern (pure CSS):
+         * - two offset radial-gradients create a clear, tileable dot grid
+         * - backgroundSize controls density; set to 24px for subtle spacing
+         * - tweak the rgba alpha to make dots lighter/darker
+         */
+        backgroundImage: `
+          radial-gradient(circle at 6px 6px, rgba(59,130,246,0.10) 1.8px, transparent 2px),
+          radial-gradient(circle at 18px 18px, rgba(59,130,246,0.10) 1.8px, transparent 2px)
+        `,
+        backgroundRepeat: "repeat",
+        backgroundSize: "24px 24px",
+
+        // slight blur/softening so content sits well on the pattern
+        WebkitBackdropFilter: "blur(0.4px)",
+        backdropFilter: "blur(0.4px)",
+      }}
+    >
+      {/* Soft translucent overlay to further mute the pattern if needed */}
+      <div className="absolute inset-0 bg-white/60 pointer-events-none" />
+
+      <div className="relative container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
+          {/* Heading */}
           <div className="text-center mb-12">
             <p className="text-primary font-semibold mb-2">Our Services</p>
             <h2 className="text-3xl md:text-5xl font-bold mb-4">
@@ -49,13 +108,14 @@ const Services = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Regular service cards */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
             {services.map((service, index) => {
               const Icon = service.icon;
               return (
                 <Card
                   key={index}
-                  className="border-2 hover:border-primary transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+                  className="border-2 hover:border-primary transition-all duration-300 hover:shadow-xl hover:-translate-y-1 bg-white/80 backdrop-blur-sm"
                 >
                   <CardHeader>
                     <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
@@ -69,6 +129,33 @@ const Services = () => {
                 </Card>
               );
             })}
+          </div>
+
+          {/* BIG Residential + Commercial Cards with HOVER ZOOM */}
+          <div className="grid md:grid-cols-2 gap-6">
+            {propertyTypes.map((item, i) => (
+              <div
+                key={i}
+                className="group relative rounded-2xl overflow-hidden shadow-xl cursor-pointer transition-transform duration-300 hover:-translate-y-1"
+              >
+                {/* Background image with zoom effect */}
+                <div
+                  className="w-full h-64 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-110"
+                  style={{ backgroundImage: `url(${item.image})` }}
+                />
+
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-900/40 to-slate-900/70" />
+
+                {/* Text */}
+                <div className="absolute bottom-6 left-6 right-6 text-white">
+                  <h3 className="text-2xl font-extrabold drop-shadow-sm">
+                    {item.title}
+                  </h3>
+                  <p className="mt-2 text-sm drop-shadow-sm">{item.subtitle}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
