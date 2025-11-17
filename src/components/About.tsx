@@ -16,7 +16,7 @@ const About = () => {
         <div className="max-w-6xl mx-auto">
           {/* Heading */}
           <div className="text-center mb-12">
-            <p className="text-primary font-semibold mb-2">About ABC Company</p>
+            <p className="text-primary font-semibold mb-2">Allyourclaimsneeds</p>
             <h2 className="text-3xl md:text-5xl font-bold mb-4">
               Your Trusted Partner in Insurance Claim Resolution
             </h2>
