@@ -75,7 +75,7 @@ const Navbar = () => {
           <div className="hidden md:flex items-center space-x-4">
             <a href="tel:817-565-5122" className={phoneClass}>
               <Phone className="w-4 h-4 mr-2" />
-              (817) 565-5122
+              (123) 456-7899
             </a>
 
             {/* UPDATED BUTTON — smooth scroll to get-started */}
@@ -120,7 +120,7 @@ const Navbar = () => {
               <button onClick={() => scrollToSection("faq")}>FAQ</button>
 
               <a href="tel:817-565-5122" className="flex items-center">
-                <Phone className="w-4 h-4 mr-2" /> (817) 565-5122
+                <Phone className="w-4 h-4 mr-2" /> (123) 456-7899
               </a>
 
               {/* UPDATED MOBILE BUTTON — smooth scroll */}

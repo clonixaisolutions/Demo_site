@@ -15,7 +15,7 @@ const Footer = () => {
                 alt="Value Equity Logo" 
                 className="w-12 h-12 object-contain rounded-full bg-white p-1 shadow-md"
               />
-              <span className="font-bold text-xl">Valor Equity Claims Solutions</span>
+              <span className="font-bold text-xl">ABC Company</span>
             </div>
 
             <p className="text-primary-foreground/80 text-sm">
@@ -53,19 +53,19 @@ const Footer = () => {
               <li className="flex items-start space-x-2">
                 <Phone className="w-4 h-4 mt-1 flex-shrink-0" />
                 <a href="tel:817-565-5122" className="text-primary-foreground/80 hover:text-primary-foreground">
-                  (817) 565-5122
+                  (123) 456-7899
                 </a>
               </li>
               <li className="flex items-start space-x-2">
                 <Mail className="w-4 h-4 mt-1 flex-shrink-0" />
                 <a href="mailto:info@vesclaims.com" className="text-primary-foreground/80 hover:text-primary-foreground">
-                  info@vesclaims.com
+                  info@abc.com
                 </a>
               </li>
               <li className="flex items-start space-x-2">
                 <MapPin className="w-4 h-4 mt-1 flex-shrink-0" />
                 <span className="text-primary-foreground/80">
-                Servicing the Dallas Fort Worth Metroplex
+                Servicing Texas
                 </span>
               </li>
             </ul>
@@ -75,7 +75,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-primary-foreground/20 pt-8 text-center text-sm text-primary-foreground/60">
           <p>
-            &copy; {new Date().getFullYear()} Valor Equity Claims Solutions. All rights reserved. Licensed Public Adjusters.
+            &copy; {new Date().getFullYear()} ABC Company. All rights reserved. Licensed Public Adjusters.
           </p>
         </div>
       </div>

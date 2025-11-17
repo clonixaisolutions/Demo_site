@@ -16,7 +16,7 @@ const About = () => {
         <div className="max-w-6xl mx-auto">
           {/* Heading */}
           <div className="text-center mb-12">
-            <p className="text-primary font-semibold mb-2">About Valor Equity</p>
+            <p className="text-primary font-semibold mb-2">About ABC Company</p>
             <h2 className="text-3xl md:text-5xl font-bold mb-4">
               Your Trusted Partner in Insurance Claim Resolution
             </h2>
@@ -26,7 +26,7 @@ const About = () => {
             {/* LEFT TEXT */}
             <div>
               <p className="text-lg text-muted-foreground mb-6">
-                At Valor Equity, we understand that dealing with property damage and 
+                At ABC Company, we understand that dealing with property damage and 
                 insurance companies can be overwhelming. That's why we're here to level 
                 the playing field.
               </p>
@@ -80,7 +80,7 @@ const About = () => {
             <div className="relative">
               <img
                 src={teamImage}
-                alt="Valor Equity team"
+                alt="Comapny team"
                 className="rounded-xl shadow-xl w-full transition-transform duration-300 hover:scale-[1.02]"
               />
             </div>

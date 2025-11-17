@@ -6,43 +6,43 @@ import { Star, X as CloseIcon } from "lucide-react";
 /* ---------------- TEXT TESTIMONIALS (no locations) ---------------- */
 const textTestimonials = [
   {
-    name: "Andy Fung",
-    text: "Wes and his team provided excellent, professional service, clearly explaining the insurance process. Highly recommend them for handling complex claims.",
+    name: "jhon",
+    text: "ABC and his team provided excellent, professional service, clearly explaining the insurance process. Highly recommend them for handling complex claims.",
     rating: 5,
   },
   {
-    name: "J D",
-    text: "Wes fought my insurance for roof replacement after multiple denials. Hiring him was my best decision; I highly recommend him before dealing with insurance.",
+    name: "Emaly",
+    text: "ABC fought my insurance for roof replacement after multiple denials. Hiring him was my best decision; I highly recommend him before dealing with insurance.",
     rating: 5,
   },
   {
-    name: "Jeremy Liu",
-    text: "Wes was professional and responsive, guiding me through the roof damage insurance claim process. He answered all my questions — highly recommended!",
+    name: "Liu",
+    text: "ABC was professional and responsive, guiding me through the roof damage insurance claim process. He answered all my questions — highly recommended!",
     rating: 5,
   },
 ];
 
-/* ---------------- VIDEO TESTIMONIALS (REAL VIDEO LINKS) ---------------- */
+/* ---------------- VIDEO TESTIMONIALS ---------------- */
 const videoTestimonials = [
   {
     name: "",
     videoId: "C6XxjY9Nm1M",
-    thumbnail: "https://img.youtube.com/vi/C6XxjY9Nm1M/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/C6xjY9Nm1M/maxresdefault.jpg",
   },
   {
     name: "",
     videoId: "84FN9pwTsF8",
-    thumbnail: "https://img.youtube.com/vi/84FN9pwTsF8/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/8FN9pwTsF8/maxresdefault.jpg",
   },
   {
     name: "",
     videoId: "tjyJo5Jd2j0",
-    thumbnail: "https://img.youtube.com/vi/tjyJo5Jd2j0/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/tjyo5Jd2j0/maxresdefault.jpg",
   },
   {
     name: "",
     videoId: "nZN0yFBLQ9s",
-    thumbnail: "https://img.youtube.com/vi/nZN0yFBLQ9s/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/nN0yFBLQ9s/maxresdefault.jpg",
   },
 ];
 
@@ -58,7 +58,7 @@ export default function Testimonials() {
 
   const AUTO_SPEED = 22;
 
-  /* ---------------- AUTO SCROLL + LOOP ---------------- */
+  /* ---------------- AUTO SCROLL LOOP ---------------- */
   useEffect(() => {
     const track = trackRef.current;
     if (!track) return;
@@ -133,10 +133,22 @@ export default function Testimonials() {
     }
   }, [modalVideo]);
 
+  /* Prevent background scroll while modal is open */
+  useEffect(() => {
+    if (modalVideo) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [modalVideo]);
+
   return (
     <section id="testimonials" className="py-20 bg-background">
       <div className="container mx-auto px-4 max-w-6xl">
-        
+
         {/* HEADER */}
         <div className="text-center mb-12">
           <p className="text-primary font-semibold mb-2">Testimonials</p>
@@ -158,7 +170,6 @@ export default function Testimonials() {
                 </div>
                 <p className="text-muted-foreground mb-4 italic">"{t.text}"</p>
                 <p className="font-bold">{t.name}</p>
-                {/* location removed on purpose */}
               </CardContent>
             </Card>
           ))}
@@ -210,7 +221,7 @@ export default function Testimonials() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-xl" />
 
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-20 h-20 bg-red-600 rounded-full shadow-xl flex items-center justify-center transition-transform group-hover:scale-95">
+                    <div className="w-20 h-20 bg-primary rounded-full shadow-xl flex items-center justify-center transition-transform group-hover:scale-95">
                       <svg viewBox="0 0 24 24" className="w-10 h-10 text-white">
                         <path d="M8 5v14l11-7z" />
                       </svg>
@@ -223,26 +234,30 @@ export default function Testimonials() {
         </div>
       </div>
 
-      {/* MODAL */}
+      {/* MODAL — fully opaque overlay + solid content to guarantee no thumbnail bleed */}
       {modalVideo && (
-        <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
-          <div className="relative bg-black rounded-xl w-[90%] max-w-3xl p-4">
+        <div
+          className="fixed inset-0 bg-black/95 flex items-center justify-center z-[9999]"
+          role="dialog"
+          aria-modal="true"
+        >
+          <div className="relative rounded-xl w-[90%] max-w-3xl p-4">
             <button
-              className="absolute top-3 right-3 text-white"
+              className="absolute top-3 right-3 text-white z-50"
               onClick={() => setModalVideo(null)}
+              aria-label="Close"
             >
               <CloseIcon size={28} />
             </button>
 
-            <div className="aspect-video">
-              <iframe
-                width="100%"
-                height="100%"
-                src={`https://www.youtube.com/embed/${modalVideo}?autoplay=1&rel=0`}
-                allow="autoplay; fullscreen"
-                allowFullScreen
-                className="rounded-xl"
-              />
+            {/* SOLID content block — no background images or transparency */}
+            <div className="aspect-video rounded-xl bg-neutral-900 flex items-center justify-center overflow-hidden">
+              <div className="text-center px-6">
+                <h2 className="text-3xl font-bold text-white mb-2">Your video here</h2>
+                <p className="text-muted-foreground text-sm">
+                  This space is reserved for your personal video testimonial.
+                </p>
+              </div>
             </div>
           </div>
         </div>
