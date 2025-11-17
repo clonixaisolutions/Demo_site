@@ -259,7 +259,7 @@ export default function GetStarted() {
                   </div>
                   <div>
                     <div className="text-sm font-semibold">Phone</div>
-                    <div className="text-lg font-medium">(123) 456-7899</div>
+                    <div className="text-lg font-medium">(786) 317-7672</div>
                     <div className="text-xs text-blue-100">24/7 Emergency Line</div>
                   </div>
                 </div>
@@ -271,7 +271,7 @@ export default function GetStarted() {
                   </div>
                   <div>
                     <div className="text-sm font-semibold">Email</div>
-                    <div className="text-lg font-medium">info@abc.com</div>
+                    <div className="text-lg font-medium"> info@Allyourclaimsneeds.com</div>
                     <div className="text-xs text-blue-100">We respond within 24 hours</div>
                   </div>
                 </div>
@@ -283,7 +283,7 @@ export default function GetStarted() {
                   </div>
                   <div>
                     <div className="text-sm font-semibold">Service Area</div>
-                    <div className="text-lg font-medium">Servicing the Texas</div>
+                    <div className="text-lg font-medium">Servicing in the Texas</div>
                   </div>
                 </div>
 
