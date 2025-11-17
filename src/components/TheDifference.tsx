@@ -71,7 +71,7 @@ export default function TheDifference() {
             <div className="mb-6">
               <p className="text-primary font-semibold tracking-wide">THE DIFFERENCE</p>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 leading-tight mt-3">
-                With ABC vs. Going It Alone
+                With US vs. Going It Alone
               </h2>
               <p className="text-lg text-slate-600 max-w-2xl mt-4">
                 Insurance companies have teams of adjusters working to minimize your claim.
