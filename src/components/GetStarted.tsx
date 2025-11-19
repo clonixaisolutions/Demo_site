@@ -51,7 +51,11 @@ export default function GetStarted() {
 
   const onChange =
     (key: keyof FormState) =>
-    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    (
+      e: React.ChangeEvent<
+        HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+      >
+    ) => {
       setForm((s) => ({ ...s, [key]: e.target.value }));
       setErrors((prev) => ({ ...prev, [key]: undefined }));
       setSuccess(null);
@@ -66,7 +70,6 @@ export default function GetStarted() {
 
     try {
       // Replace this with your actual submit logic (API call)
-      // Simulate network delay:
       await new Promise((res) => setTimeout(res, 900));
 
       setSuccess("Thanks! Your free claim review request has been submitted.");
@@ -91,103 +94,140 @@ export default function GetStarted() {
       className="py-20"
       style={{
         backgroundImage:
-          "radial-gradient(circle at 1px 1px, rgba(59,130,246,0.03) 1px, transparent 1px)",
+          "radial-gradient(circle at 1px 1px, hsla(344,66%,29%,0.06) 1px, transparent 1px)",
         backgroundSize: "40px 40px",
-        backgroundColor: "#f7fbff",
+        backgroundColor: "hsl(344,25%,96%)", // soft wine-tinted muted background
       }}
     >
       <div className="max-w-7xl mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-10">
-          <p className="text-primary font-semibold tracking-wide">GET STARTED</p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 mt-3">
+          <p className="text-primary font-semibold tracking-wide">
+            GET STARTED
+          </p>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-foreground mt-3">
             Schedule Your Free Claim Review
           </h2>
-          <p className="text-lg text-slate-600 max-w-3xl mx-auto mt-4">
-            Fill out the form below and one of our expert adjusters will contact you within 24 hours.
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto mt-4">
+            Fill out the form below and one of our expert adjusters will
+            contact you within 24 hours.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
           {/* LEFT COLUMN — Custom Form */}
-          <div className="bg-white border border-slate-100 rounded-2xl shadow-sm p-6">
+          <div className="bg-background border border-primary/10 rounded-2xl shadow-sm p-6">
             <div className="max-w-xl mx-auto">
-              <h3 className="text-2xl font-bold text-slate-900 mb-4">Request Your Free Claim Review</h3>
-              <p className="text-sm text-slate-600 mb-6">
-                Provide a few details about your property and the damage — we’ll review it and reach out with next steps.
+              <h3 className="text-2xl font-bold text-foreground mb-4">
+                Request Your Free Claim Review
+              </h3>
+              <p className="text-sm text-muted-foreground mb-6">
+                Provide a few details about your property and the damage — we’ll
+                review it and reach out with next steps.
               </p>
 
               <form onSubmit={handleSubmit} noValidate>
                 {/* First Name */}
                 <label className="block mb-4">
-                  <span className="text-sm font-medium text-slate-700">First Name</span>
+                  <span className="text-sm font-medium text-foreground/80">
+                    First Name
+                  </span>
                   <input
                     type="text"
                     value={form.firstName}
                     onChange={onChange("firstName")}
                     className={`mt-2 block w-full rounded-lg border px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/60 ${
-                      errors.firstName ? "border-red-400" : "border-slate-200"
+                      errors.firstName ? "border-red-400" : "border-border"
                     }`}
                     placeholder="John"
                     aria-invalid={!!errors.firstName}
-                    aria-describedby={errors.firstName ? "firstName-error" : undefined}
+                    aria-describedby={
+                      errors.firstName ? "firstName-error" : undefined
+                    }
                   />
                   {errors.firstName && (
-                    <p id="firstName-error" className="text-xs text-red-500 mt-1">{errors.firstName}</p>
+                    <p
+                      id="firstName-error"
+                      className="text-xs text-red-500 mt-1"
+                    >
+                      {errors.firstName}
+                    </p>
                   )}
                 </label>
 
                 {/* Phone */}
                 <label className="block mb-4">
-                  <span className="flex items-center justify-between text-sm font-medium text-slate-700">
-                    <span>Phone <span className="text-xs text-slate-400 ml-1">(Required)</span></span>
+                  <span className="flex items-center justify-between text-sm font-medium text-foreground/80">
+                    <span>
+                      Phone{" "}
+                      <span className="text-xs text-muted-foreground ml-1">
+                        (Required)
+                      </span>
+                    </span>
                   </span>
                   <input
                     type="tel"
                     value={form.phone}
                     onChange={onChange("phone")}
                     className={`mt-2 block w-full rounded-lg border px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/60 ${
-                      errors.phone ? "border-red-400" : "border-slate-200"
+                      errors.phone ? "border-red-400" : "border-border"
                     }`}
                     placeholder="(123) 456-7899"
                     aria-invalid={!!errors.phone}
-                    aria-describedby={errors.phone ? "phone-error" : undefined}
+                    aria-describedby={
+                      errors.phone ? "phone-error" : undefined
+                    }
                   />
                   {errors.phone && (
-                    <p id="phone-error" className="text-xs text-red-500 mt-1">{errors.phone}</p>
+                    <p id="phone-error" className="text-xs text-red-500 mt-1">
+                      {errors.phone}
+                    </p>
                   )}
                 </label>
 
                 {/* Email */}
                 <label className="block mb-4">
-                  <span className="text-sm font-medium text-slate-700">Email <span className="text-xs text-slate-400 ml-1">(Required)</span></span>
+                  <span className="text-sm font-medium text-foreground/80">
+                    Email{" "}
+                    <span className="text-xs text-muted-foreground ml-1">
+                      (Required)
+                    </span>
+                  </span>
                   <input
                     type="email"
                     value={form.email}
                     onChange={onChange("email")}
                     className={`mt-2 block w-full rounded-lg border px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/60 ${
-                      errors.email ? "border-red-400" : "border-slate-200"
+                      errors.email ? "border-red-400" : "border-border"
                     }`}
                     placeholder="you@example.com"
                     aria-invalid={!!errors.email}
-                    aria-describedby={errors.email ? "email-error" : undefined}
+                    aria-describedby={
+                      errors.email ? "email-error" : undefined
+                    }
                   />
                   {errors.email && (
-                    <p id="email-error" className="text-xs text-red-500 mt-1">{errors.email}</p>
+                    <p id="email-error" className="text-xs text-red-500 mt-1">
+                      {errors.email}
+                    </p>
                   )}
                 </label>
 
                 {/* Property Type */}
                 <label className="block mb-4">
-                  <span className="text-sm font-medium text-slate-700">Property Type</span>
+                  <span className="text-sm font-medium text-foreground/80">
+                    Property Type
+                  </span>
                   <select
                     value={form.propertyType}
                     onChange={onChange("propertyType")}
-                    className={`mt-2 block w-full rounded-lg border px-4 py-3 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-primary/60 ${
-                      errors.propertyType ? "border-red-400" : "border-slate-200"
+                    className={`mt-2 block w-full rounded-lg border px-4 py-3 text-sm bg-background focus:outline-none focus:ring-2 focus:ring-primary/60 ${
+                      errors.propertyType ? "border-red-400" : "border-border"
                     }`}
                     aria-invalid={!!errors.propertyType}
-                    aria-describedby={errors.propertyType ? "propType-error" : undefined}
+                    aria-describedby={
+                      errors.propertyType ? "propType-error" : undefined
+                    }
                   >
                     <option value="">Select property type</option>
                     <option value="residential">Residential</option>
@@ -196,26 +236,34 @@ export default function GetStarted() {
                     <option value="other">Other</option>
                   </select>
                   {errors.propertyType && (
-                    <p id="propType-error" className="text-xs text-red-500 mt-1">{errors.propertyType}</p>
+                    <p id="propType-error" className="text-xs text-red-500 mt-1">
+                      {errors.propertyType}
+                    </p>
                   )}
                 </label>
 
                 {/* Damage Details */}
                 <label className="block mb-6">
-                  <span className="text-sm font-medium text-slate-700">Tell us about your damage</span>
+                  <span className="text-sm font-medium text-foreground/80">
+                    Tell us about your damage
+                  </span>
                   <textarea
                     value={form.damageDetails}
                     onChange={onChange("damageDetails")}
                     rows={5}
                     className={`mt-2 block w-full rounded-lg border px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/60 ${
-                      errors.damageDetails ? "border-red-400" : "border-slate-200"
+                      errors.damageDetails ? "border-red-400" : "border-border"
                     }`}
                     placeholder="Describe the damage, when it happened, and any immediate concerns..."
                     aria-invalid={!!errors.damageDetails}
-                    aria-describedby={errors.damageDetails ? "damage-error" : undefined}
+                    aria-describedby={
+                      errors.damageDetails ? "damage-error" : undefined
+                    }
                   />
                   {errors.damageDetails && (
-                    <p id="damage-error" className="text-xs text-red-500 mt-1">{errors.damageDetails}</p>
+                    <p id="damage-error" className="text-xs text-red-500 mt-1">
+                      {errors.damageDetails}
+                    </p>
                   )}
                 </label>
 
@@ -224,14 +272,16 @@ export default function GetStarted() {
                   <button
                     type="submit"
                     disabled={submitting}
-                    className="inline-flex items-center justify-center rounded-lg bg-primary px-6 py-3 text-white font-semibold shadow hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-primary/70 disabled:opacity-60"
+                    className="inline-flex items-center justify-center rounded-lg bg-primary px-6 py-3 text-primary-foreground font-semibold shadow hover:shadow-lg hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/70 disabled:opacity-60"
                   >
                     {submitting ? "Submitting..." : "Submit Free Claim Review"}
                   </button>
 
-                  <div className="text-sm text-slate-500">
+                  <div className="text-sm text-muted-foreground">
                     <div>No upfront cost</div>
-                    <div className="text-xs text-slate-400">We respect your privacy.</div>
+                    <div className="text-xs text-muted-foreground/80">
+                      We respect your privacy.
+                    </div>
                   </div>
                 </div>
 
@@ -248,53 +298,61 @@ export default function GetStarted() {
           {/* RIGHT COLUMN — Contact Info */}
           <div className="space-y-6">
             {/* CONTACT CARD */}
-            <div className="rounded-2xl overflow-hidden shadow-lg bg-blue-800 text-white p-8">
+            <div className="rounded-2xl overflow-hidden shadow-lg bg-primary text-primary-foreground p-8">
               <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
 
               <div className="space-y-5">
                 {/* Phone */}
                 <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 rounded-lg bg-blue-700/70 grid place-items-center">
-                    <Phone className="w-6 h-6 text-white" />
+                  <div className="w-12 h-12 rounded-lg bg-primary-foreground/10 grid place-items-center">
+                    <Phone className="w-6 h-6 text-primary-foreground" />
                   </div>
                   <div>
                     <div className="text-sm font-semibold">Phone</div>
                     <div className="text-lg font-medium">(786) 317-7672</div>
-                    <div className="text-xs text-blue-100">24/7 Emergency Line</div>
+                    <div className="text-xs text-primary-foreground/80">
+                      24/7 Emergency Line
+                    </div>
                   </div>
                 </div>
 
                 {/* Email */}
                 <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 rounded-lg bg-blue-700/70 grid place-items-center">
-                    <Mail className="w-6 h-6 text-white" />
+                  <div className="w-12 h-12 rounded-lg bg-primary-foreground/10 grid place-items-center">
+                    <Mail className="w-6 h-6 text-primary-foreground" />
                   </div>
                   <div>
                     <div className="text-sm font-semibold">Email</div>
-                    <div className="text-lg font-medium"> info@Allyourclaimsneeds.com</div>
-                    <div className="text-xs text-blue-100">We respond within 24 hours</div>
+                    <div className="text-lg font-medium">
+                      info@Allyourclaimsneeds.com
+                    </div>
+                    <div className="text-xs text-primary-foreground/80">
+                      We respond within 24 hours
+                    </div>
                   </div>
                 </div>
 
                 {/* Location */}
                 <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 rounded-lg bg-blue-700/70 grid place-items-center">
-                    <MapPin className="w-6 h-6 text-white" />
+                  <div className="w-12 h-12 rounded-lg bg-primary-foreground/10 grid place-items-center">
+                    <MapPin className="w-6 h-6 text-primary-foreground" />
                   </div>
                   <div>
                     <div className="text-sm font-semibold">Service Area</div>
-                    <div className="text-lg font-medium">Servicing in the Texas</div>
+                    <div className="text-lg font-medium">
+                      Servicing in the Texas
+                    </div>
                   </div>
                 </div>
 
                 {/* Business Hours */}
                 <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 rounded-lg bg-blue-700/70 grid place-items-center">
-                    <Clock className="w-6 h-6 text-white" />
+                  <div className="w-12 h-12 rounded-lg bg-primary-foreground/10 grid place-items-center">
+                    <Clock className="w-6 h-6 text-primary-foreground" />
                   </div>
                   <div>
                     <div className="text-sm font-semibold">Business Hours</div>
-                    <div className="text-xs text-blue-100">
+                    <div className="text-xs text-primary-foreground/80">
                       Mon – Fri: 8:00 am – 4:00 pm
                       <br />
                       Sat – Sun: Closed
@@ -305,9 +363,11 @@ export default function GetStarted() {
             </div>
 
             {/* Why Contact Us */}
-            <div className="bg-white border border-slate-100 rounded-2xl shadow-sm p-6">
-              <h4 className="text-lg font-semibold text-slate-900 mb-4">Why Contact Us?</h4>
-              <ul className="list-disc list-inside text-slate-600 space-y-3">
+            <div className="bg-background border border-primary/10 rounded-2xl shadow-sm p-6">
+              <h4 className="text-lg font-semibold text-foreground mb-4">
+                Why Contact Us?
+              </h4>
+              <ul className="list-disc list-inside text-muted-foreground space-y-3">
                 <li>Free, no-obligation claim review</li>
                 <li>Same-day response to inquiries</li>
                 <li>No upfront costs or fees</li>
