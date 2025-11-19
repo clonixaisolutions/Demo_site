@@ -23,24 +23,25 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Top vs scrolled nav background / text
   const navBgClass = isScrolled
-    ? "bg-white/95 text-slate-900 shadow-md"
-    : "bg-transparent text-white";
+    ? "bg-background/95 text-foreground shadow-md border-b border-border"
+    : "bg-transparent text-primary-foreground";
 
   const linkBase =
     "transition-colors px-2 py-1 font-medium text-sm rounded-sm focus:outline-none";
 
   const linkClass = isScrolled
-    ? `${linkBase} text-slate-800 hover:text-slate-900`
-    : `${linkBase} text-white/95 hover:text-white`;
+    ? `${linkBase} text-foreground/80 hover:text-primary`
+    : `${linkBase} text-primary-foreground/90 hover:text-primary-foreground`;
 
   const phoneClass = isScrolled
-    ? "flex items-center text-slate-800 hover:text-slate-900 transition-colors"
-    : "flex items-center text-white hover:text-white/90 transition-colors";
+    ? "flex items-center text-foreground/80 hover:text-primary transition-colors"
+    : "flex items-center text-primary-foreground hover:text-primary-foreground/90 transition-colors";
 
   const buttonClassWhenScrolled = isScrolled
     ? ""
-    : "bg-white text-primary hover:bg-white/95";
+    : "bg-primary-foreground text-primary hover:bg-primary-foreground/90";
 
   return (
     <nav
@@ -48,37 +49,57 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
-          
           {/* Logo */}
           <div className="flex items-center space-x-3">
-            <img src={Logo} alt="Valor Equity Logo" className="w-10 h-10 object-contain" />
+            <img
+              src={Logo}
+              alt="Allyourclaimsneeds Logo"
+              className="w-10 h-10 object-contain rounded-full bg-background p-1 shadow-sm"
+            />
             <span
-              className={`font-bold text-lg ${
-                isScrolled ? "text-slate-900" : "text-white"
+              className={`font-bold text-lg tracking-tight ${
+                isScrolled ? "text-foreground" : "text-primary-foreground"
               }`}
             >
-              
+              Allyourclaimsneeds
             </span>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <button onClick={() => scrollToSection("home")} className={linkClass}>Home</button>
-            <button onClick={() => scrollToSection("about")} className={linkClass}>About</button>
-            <button onClick={() => scrollToSection("services")} className={linkClass}>Services</button>
-            <button onClick={() => scrollToSection("why-us")} className={linkClass}>Why Us</button>
-            <button onClick={() => scrollToSection("testimonials")} className={linkClass}>Testimonials</button>
-            <button onClick={() => scrollToSection("faq")} className={linkClass}>FAQ</button>
+            <button onClick={() => scrollToSection("home")} className={linkClass}>
+              Home
+            </button>
+            <button onClick={() => scrollToSection("about")} className={linkClass}>
+              About
+            </button>
+            <button onClick={() => scrollToSection("services")} className={linkClass}>
+              Services
+            </button>
+            <button onClick={() => scrollToSection("why-us")} className={linkClass}>
+              Why Us
+            </button>
+            <button
+              onClick={() => scrollToSection("testimonials")}
+              className={linkClass}
+            >
+              Testimonials
+            </button>
+            <button onClick={() => scrollToSection("faq")} className={linkClass}>
+              FAQ
+            </button>
           </div>
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center space-x-4">
-            <a href="tel:817-565-5122" className={phoneClass}>
+            <a
+              href="tel:7863177672"
+              className={phoneClass}
+            >
               <Phone className="w-4 h-4 mr-2" />
               (786) 317-7672
             </a>
 
-            {/* UPDATED BUTTON — smooth scroll to get-started */}
             <Button
               variant="secondary"
               size="lg"
@@ -92,13 +113,23 @@ const Navbar = () => {
           {/* Mobile menu button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className={`md:hidden ${isScrolled ? "text-slate-900" : "text-white"}`}
+            className={`md:hidden ${
+              isScrolled ? "text-foreground" : "text-primary-foreground"
+            }`}
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2">
               {isOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M6 18L18 6M6 6l12 12"
+                />
               ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
               )}
             </svg>
           </button>
@@ -108,7 +139,9 @@ const Navbar = () => {
         {isOpen && (
           <div
             className={`md:hidden pb-4 ${
-              isScrolled ? "bg-white/95 text-slate-900" : "bg-primary/80 text-white"
+              isScrolled
+                ? "bg-background/95 text-foreground border-t border-border"
+                : "bg-primary/90 text-primary-foreground"
             }`}
           >
             <div className="flex flex-col space-y-4 py-4">
@@ -116,14 +149,18 @@ const Navbar = () => {
               <button onClick={() => scrollToSection("about")}>About</button>
               <button onClick={() => scrollToSection("services")}>Services</button>
               <button onClick={() => scrollToSection("why-us")}>Why Us</button>
-              <button onClick={() => scrollToSection("testimonials")}>Testimonials</button>
+              <button onClick={() => scrollToSection("testimonials")}>
+                Testimonials
+              </button>
               <button onClick={() => scrollToSection("faq")}>FAQ</button>
 
-              <a href="tel:817-565-5122" className="flex items-center">
+              <a
+                href="tel:7863177672"
+                className="flex items-center"
+              >
                 <Phone className="w-4 h-4 mr-2" /> (786) 317-7672
               </a>
 
-              {/* UPDATED MOBILE BUTTON — smooth scroll */}
               <Button
                 variant="secondary"
                 size="lg"
