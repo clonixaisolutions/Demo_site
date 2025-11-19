@@ -1,3 +1,4 @@
+// src/components/Footer.tsx
 import { Phone, Mail, MapPin } from "lucide-react";
 import Logo from "@/assets/logo.png"; // <-- IMPORT LOGO
 
@@ -11,15 +12,15 @@ const Footer = () => {
             <div className="flex items-center space-x-3 mb-4">
               <img
                 src={Logo}
-                alt="Allyourclaimsneeds Logo"
+                alt="Adjuster Texas Logo"
                 className="w-12 h-12 object-contain rounded-full bg-primary-foreground p-1 shadow-md"
               />
               <span className="font-bold text-xl">Adjuster Texas</span>
             </div>
 
             <p className="text-primary-foreground/80 text-sm leading-relaxed">
-              Licensed public insurance adjusters fighting for your rights and maximum
-              settlements.
+              Licensed public insurance adjusters fighting for your rights and
+              maximum settlements.
             </p>
           </div>
 
@@ -61,6 +62,14 @@ const Footer = () => {
                   Testimonials
                 </a>
               </li>
+              <li>
+                <a
+                  href="#faq"
+                  className="text-primary-foreground/75 hover:text-primary-foreground hover:underline underline-offset-4"
+                >
+                  FAQ
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -87,11 +96,44 @@ const Footer = () => {
               <li className="flex items-start space-x-2">
                 <Phone className="w-4 h-4 mt-1 flex-shrink-0 text-primary-foreground/70" />
                 <a
-                  href="tel:7863177672"
+                  href="tel:9037334664"
                   className="text-primary-foreground/80 hover:text-primary-foreground"
                 >
-                  (903) 733-4664 
+                  (903) 733-4664
                 </a>
               </li>
+
               <li className="flex items-start space-x-2">
-                <Mail className="w-4 h-4 mt-1 fle
+                <Mail className="w-4 h-4 mt-1 flex-shrink-0 text-primary-foreground/70" />
+                <a
+                  href="mailto:info@adjustertexas.com"
+                  className="text-primary-foreground/80 hover:text-primary-foreground"
+                >
+                  info@adjustertexas.com
+                </a>
+              </li>
+
+              <li className="flex items-start space-x-2">
+                <MapPin className="w-4 h-4 mt-1 flex-shrink-0 text-primary-foreground/70" />
+                <span className="text-primary-foreground/80">
+                  Serving property owners across Texas
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="border-t border-primary-foreground/20 pt-8 text-center text-sm text-primary-foreground/60">
+          <p>
+            &copy; {new Date().getFullYear()} Adjuster Texas. All rights
+            reserved. Licensed Public Adjusters.
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
+
