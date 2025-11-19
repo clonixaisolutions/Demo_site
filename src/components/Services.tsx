@@ -35,7 +35,8 @@ const services = [
   {
     icon: Zap,
     title: "Electrical Damage",
-    description: "Professional representation for electrical system damage claims.",
+    description:
+      "Professional representation for electrical system damage claims.",
   },
   {
     icon: HomeIcon,
@@ -71,36 +72,28 @@ const Services: React.FC = () => {
       id="services"
       className="relative py-20 overflow-hidden"
       style={{
-        // base background tint
-        backgroundColor: "#f7fbff",
-
-        /*
-         * Small-dot pattern (pure CSS):
-         * - two offset radial-gradients create a clear, tileable dot grid
-         * - backgroundSize controls density; set to 24px for subtle spacing
-         * - tweak the rgba alpha to make dots lighter/darker
-         */
+        // soft wine-tinted background
+        backgroundColor: "hsl(344,25%,96%)",
+        // dot pattern using primary hue
         backgroundImage: `
-          radial-gradient(circle at 6px 6px, rgba(59,130,246,0.10) 1.8px, transparent 2px),
-          radial-gradient(circle at 18px 18px, rgba(59,130,246,0.10) 1.8px, transparent 2px)
+          radial-gradient(circle at 6px 6px, hsla(344,66%,29%,0.10) 1.8px, transparent 2px),
+          radial-gradient(circle at 18px 18px, hsla(344,66%,29%,0.10) 1.8px, transparent 2px)
         `,
         backgroundRepeat: "repeat",
         backgroundSize: "24px 24px",
-
-        // slight blur/softening so content sits well on the pattern
         WebkitBackdropFilter: "blur(0.4px)",
         backdropFilter: "blur(0.4px)",
       }}
     >
-      {/* Soft translucent overlay to further mute the pattern if needed */}
-      <div className="absolute inset-0 bg-white/60 pointer-events-none" />
+      {/* Soft translucent overlay to keep pattern subtle */}
+      <div className="absolute inset-0 bg-background/70 pointer-events-none" />
 
       <div className="relative container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           {/* Heading */}
           <div className="text-center mb-12">
             <p className="text-primary font-semibold mb-2">Our Services</p>
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">
+            <h2 className="text-3xl md:text-5xl font-bold mb-4 text-foreground">
               Comprehensive Insurance Claim Services
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
@@ -108,51 +101,66 @@ const Services: React.FC = () => {
             </p>
           </div>
 
-          {/* Regular service cards */}
+          {/* Service cards */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
             {services.map((service, index) => {
               const Icon = service.icon;
               return (
                 <Card
                   key={index}
-                  className="border-2 hover:border-primary transition-all duration-300 hover:shadow-xl hover:-translate-y-1 bg-white/80 backdrop-blur-sm"
+                  className="
+                    border border-primary/15 
+                    hover:border-primary/50 
+                    transition-all duration-300 
+                    hover:shadow-xl hover:-translate-y-1 
+                    bg-background/90 backdrop-blur-sm
+                  "
                 >
                   <CardHeader>
                     <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
                       <Icon className="w-6 h-6 text-primary" />
                     </div>
-                    <CardTitle className="text-xl">{service.title}</CardTitle>
+                    <CardTitle className="text-xl text-foreground">
+                      {service.title}
+                    </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-muted-foreground">{service.description}</p>
+                    <p className="text-muted-foreground">
+                      {service.description}
+                    </p>
                   </CardContent>
                 </Card>
               );
             })}
           </div>
 
-          {/* BIG Residential + Commercial Cards with HOVER ZOOM */}
+          {/* Residential + Commercial feature cards */}
           <div className="grid md:grid-cols-2 gap-6">
             {propertyTypes.map((item, i) => (
               <div
                 key={i}
-                className="group relative rounded-2xl overflow-hidden shadow-xl cursor-pointer transition-transform duration-300 hover:-translate-y-1"
+                className="
+                  group relative rounded-2xl overflow-hidden shadow-xl cursor-pointer
+                  transition-transform duration-300 hover:-translate-y-1
+                "
               >
-                {/* Background image with zoom effect */}
+                {/* Background image with zoom */}
                 <div
                   className="w-full h-64 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-110"
                   style={{ backgroundImage: `url(${item.image})` }}
                 />
 
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-900/40 to-slate-900/70" />
+                {/* Wine-tinted overlay */}
+                <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-primary/55 to-primary/80" />
 
                 {/* Text */}
-                <div className="absolute bottom-6 left-6 right-6 text-white">
+                <div className="absolute bottom-6 left-6 right-6 text-primary-foreground">
                   <h3 className="text-2xl font-extrabold drop-shadow-sm">
                     {item.title}
                   </h3>
-                  <p className="mt-2 text-sm drop-shadow-sm">{item.subtitle}</p>
+                  <p className="mt-2 text-sm drop-shadow-sm">
+                    {item.subtitle}
+                  </p>
                 </div>
               </div>
             ))}
