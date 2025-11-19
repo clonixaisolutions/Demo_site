@@ -309,7 +309,7 @@ export default function GetStarted() {
                   </div>
                   <div>
                     <div className="text-sm font-semibold">Phone</div>
-                    <div className="text-lg font-medium">(786) 317-7672</div>
+                    <div className="text-lg font-medium">(903) 733-4664 </div>
                     <div className="text-xs text-primary-foreground/80">
                       24/7 Emergency Line
                     </div>
@@ -324,7 +324,7 @@ export default function GetStarted() {
                   <div>
                     <div className="text-sm font-semibold">Email</div>
                     <div className="text-lg font-medium">
-                      info@Allyourclaimsneeds.com
+                      info@AdjusterTexas.com
                     </div>
                     <div className="text-xs text-primary-foreground/80">
                       We respond within 24 hours
@@ -340,7 +340,7 @@ export default function GetStarted() {
                   <div>
                     <div className="text-sm font-semibold">Service Area</div>
                     <div className="text-lg font-medium">
-                      Servicing in the Texas
+                      Proudly serving Austin, Dallas, Houston and the entire State of Texas
                     </div>
                   </div>
                 </div>
