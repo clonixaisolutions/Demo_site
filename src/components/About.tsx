@@ -17,7 +17,7 @@ const About = () => {
           {/* Heading */}
           <div className="text-center mb-12">
             <p className="text-primary font-semibold mb-2 tracking-wide uppercase">
-              Allyourclaimsneeds
+              Adjuster Texas
             </p>
             <h2 className="text-3xl md:text-5xl font-bold mb-4 text-foreground">
               Your Trusted Partner in Insurance Claim Resolution
@@ -28,7 +28,7 @@ const About = () => {
             {/* LEFT TEXT */}
             <div>
               <p className="text-lg text-muted-foreground mb-6">
-                At ABC Company, we understand that dealing with property damage and
+                At Adjuster Texas, we understand that dealing with property damage and
                 insurance companies can be overwhelming. That&apos;s why we&apos;re
                 here to level the playing field.
               </p>
