@@ -7,17 +7,17 @@ import { Star, X as CloseIcon } from "lucide-react";
 const textTestimonials = [
   {
     name: "jhon",
-    text: "ABC and his team provided excellent, professional service, clearly explaining the insurance process. Highly recommend them for handling complex claims.",
+    text: "Adjuster Texas and his team provided excellent, professional service, clearly explaining the insurance process. Highly recommend them for handling complex claims.",
     rating: 5,
   },
   {
     name: "Emaly",
-    text: "ABC fought my insurance for roof replacement after multiple denials. Hiring him was my best decision; I highly recommend him before dealing with insurance.",
+    text: "Adjuster Texas fought my insurance for roof replacement after multiple denials. Hiring him was my best decision; I highly recommend him before dealing with insurance.",
     rating: 5,
   },
   {
     name: "Liu",
-    text: "ABC was professional and responsive, guiding me through the roof damage insurance claim process. He answered all my questions — highly recommended!",
+    text: "Adjuster Texas was professional and responsive, guiding me through the roof damage insurance claim process. He answered all my questions — highly recommended!",
     rating: 5,
   },
 ];
