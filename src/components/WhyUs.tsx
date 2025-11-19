@@ -69,7 +69,7 @@ const WhyUs = () => {
             </p>
 
             <h2 className="text-3xl md:text-5xl font-extrabold text-foreground mb-4">
-              Experience Allyourclaimsneeds Company
+              Experience Adjuster Texas
             </h2>
 
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
