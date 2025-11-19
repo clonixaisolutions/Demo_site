@@ -48,7 +48,7 @@ const CTA = () => {
             >
               <a href="tel:786-317-7672" className="flex items-center">
                 <Phone className="w-5 h-5 mr-2" />
-                (786) 317-7672
+                (903) 733-4664 
               </a>
             </Button>
 
