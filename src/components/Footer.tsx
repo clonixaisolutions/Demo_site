@@ -14,7 +14,7 @@ const Footer = () => {
                 alt="Allyourclaimsneeds Logo"
                 className="w-12 h-12 object-contain rounded-full bg-primary-foreground p-1 shadow-md"
               />
-              <span className="font-bold text-xl">Allyourclaimsneeds</span>
+              <span className="font-bold text-xl">Adjuster Texas</span>
             </div>
 
             <p className="text-primary-foreground/80 text-sm leading-relaxed">
@@ -90,7 +90,7 @@ const Footer = () => {
                   href="tel:7863177672"
                   className="text-primary-foreground/80 hover:text-primary-foreground"
                 >
-                  (786) 317-7672
+                  (903) 733-4664 
                 </a>
               </li>
               <li className="flex items-start space-x-2">
