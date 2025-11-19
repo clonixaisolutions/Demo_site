@@ -55,9 +55,9 @@ const WhyUs = () => {
       className="py-20"
       style={{
         backgroundImage:
-          "radial-gradient(circle at 1px 1px, rgba(59,130,246,0.07) 1px, transparent 1px)",
+          "radial-gradient(circle at 1px 1px, hsla(344,66%,29%,0.08) 1px, transparent 1px)",
         backgroundSize: "26px 26px",
-        backgroundColor: "#f3f8ff",
+        backgroundColor: "hsl(344,25%,96%)",
       }}
     >
       <div className="container mx-auto px-4">
@@ -68,11 +68,11 @@ const WhyUs = () => {
               WHY US
             </p>
 
-            <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 mb-4">
-              Experience Allyourclaimsneeds Company 
+            <h2 className="text-3xl md:text-5xl font-extrabold text-foreground mb-4">
+              Experience Allyourclaimsneeds Company
             </h2>
 
-            <p className="text-lg text-slate-600 max-w-3xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
               We fight for your rights and work tirelessly to ensure you
               receive the maximum settlement you deserve.
             </p>
@@ -85,7 +85,14 @@ const WhyUs = () => {
               return (
                 <Card
                   key={i}
-                  className="group rounded-2xl border border-slate-100 bg-white shadow-sm hover:shadow-md transition-all duration-200"
+                  className="
+                    group rounded-2xl 
+                    border border-border 
+                    bg-background 
+                    shadow-sm 
+                    hover:shadow-md hover:-translate-y-1 
+                    transition-all duration-200
+                  "
                 >
                   <CardContent className="p-6">
                     <div className="flex items-start space-x-4">
@@ -95,7 +102,7 @@ const WhyUs = () => {
                           w-14 h-14 rounded-lg flex items-center justify-center flex-shrink-0 
                           bg-primary/10 text-primary 
                           transition-all duration-300 
-                          group-hover:bg-primary group-hover:text-white
+                          group-hover:bg-primary group-hover:text-primary-foreground
                         "
                       >
                         <Icon className="w-7 h-7 transition-colors duration-300" />
@@ -103,10 +110,12 @@ const WhyUs = () => {
 
                       {/* Text */}
                       <div>
-                        <h3 className="text-xl font-bold mb-2 text-slate-900">
+                        <h3 className="text-xl font-bold mb-2 text-foreground">
                           {reason.title}
                         </h3>
-                        <p className="text-slate-600">{reason.description}</p>
+                        <p className="text-muted-foreground">
+                          {reason.description}
+                        </p>
                       </div>
                     </div>
                   </CardContent>
