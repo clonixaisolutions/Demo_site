@@ -37,12 +37,12 @@ const videoTestimonials = [
   {
     name: "",
     videoId: "tjyJo5Jd2j0",
-    thumbnail: "https://img.youtube.com/vi/tjyo5Jd2j0/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/tjyJo5Jd2j0/maxresdefault.jpg",
   },
   {
     name: "",
     videoId: "nZN0yFBLQ9s",
-    thumbnail: "https://img.youtube.com/vi/nN0yFBLQ9s/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/nZN0yFBLQ9s/maxresdefault.jpg",
   },
 ];
 
@@ -148,11 +148,12 @@ export default function Testimonials() {
   return (
     <section id="testimonials" className="py-20 bg-background">
       <div className="container mx-auto px-4 max-w-6xl">
-
         {/* HEADER */}
         <div className="text-center mb-12">
           <p className="text-primary font-semibold mb-2">Testimonials</p>
-          <h2 className="text-3xl md:text-5xl font-bold">What Our Clients Say</h2>
+          <h2 className="text-3xl md:text-5xl font-bold text-foreground">
+            What Our Clients Say
+          </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
             Real stories from real clients who trusted us with their insurance claims.
           </p>
@@ -161,15 +162,29 @@ export default function Testimonials() {
         {/* TEXT TESTIMONIALS */}
         <div className="grid md:grid-cols-3 gap-8 mb-16">
           {textTestimonials.map((t, idx) => (
-            <Card key={idx} className="border-2 hover:border-primary transition-all duration-300">
+            <Card
+              key={idx}
+              className="
+                border border-primary/15 
+                hover:border-primary/50 
+                transition-all duration-300 
+                hover:shadow-xl hover:-translate-y-1
+                bg-background
+              "
+            >
               <CardContent className="p-6">
                 <div className="flex mb-4">
                   {[...Array(t.rating)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-primary text-primary" />
+                    <Star
+                      key={i}
+                      className="w-5 h-5 fill-primary text-primary"
+                    />
                   ))}
                 </div>
-                <p className="text-muted-foreground mb-4 italic">"{t.text}"</p>
-                <p className="font-bold">{t.name}</p>
+                <p className="text-muted-foreground mb-4 italic">
+                  "{t.text}"
+                </p>
+                <p className="font-bold text-foreground">{t.name}</p>
               </CardContent>
             </Card>
           ))}
@@ -177,7 +192,7 @@ export default function Testimonials() {
 
         {/* TIPS HEADING */}
         <div className="text-center mb-6 mt-4">
-          <h3 className="text-2xl md:text-3xl font-bold text-slate-900">
+          <h3 className="text-2xl md:text-3xl font-bold text-foreground">
             Tips for Maximizing Your Claims
           </h3>
           <p className="text-muted-foreground mt-2 max-w-2xl mx-auto">
@@ -205,7 +220,7 @@ export default function Testimonials() {
           >
             <style>{`div::-webkit-scrollbar{display:none}`}</style>
 
-            {[0, 1].map(loop =>
+            {[0, 1].map((loop) =>
               videoTestimonials.map((v, i) => (
                 <div
                   key={`${loop}-${i}`}
@@ -218,7 +233,7 @@ export default function Testimonials() {
                     style={{ backgroundImage: `url(${v.thumbnail})` }}
                   />
 
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-xl" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent rounded-xl" />
 
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="w-20 h-20 bg-primary rounded-full shadow-xl flex items-center justify-center transition-transform group-hover:scale-95">
@@ -253,8 +268,10 @@ export default function Testimonials() {
             {/* SOLID content block — no background images or transparency */}
             <div className="aspect-video rounded-xl bg-neutral-900 flex items-center justify-center overflow-hidden">
               <div className="text-center px-6">
-                <h2 className="text-3xl font-bold text-white mb-2">Your video here</h2>
-                <p className="text-muted-foreground text-sm">
+                <h2 className="text-3xl font-bold text-white mb-2">
+                  Your video here
+                </h2>
+                <p className="text-sm text-muted-foreground">
                   This space is reserved for your personal video testimonial.
                 </p>
               </div>
