@@ -61,7 +61,7 @@ const Navbar = () => {
                 isScrolled ? "text-foreground" : "text-primary-foreground"
               }`}
             >
-              Allyourclaimsneeds
+              Adjuster Texas
             </span>
           </div>
 
@@ -158,7 +158,7 @@ const Navbar = () => {
                 href="tel:7863177672"
                 className="flex items-center"
               >
-                <Phone className="w-4 h-4 mr-2" /> (786) 317-7672
+                <Phone className="w-4 h-4 mr-2" /> (903) 733-4664 
               </a>
 
               <Button
